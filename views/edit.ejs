@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Chat</title>
+   <style>
+    /* editChatStyle.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #333;
+  min-height: 100vh;
+}
+
+.edit-chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.edit-chat-title {
+  color: #333;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.chat-id {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #777;
+}
+
+.chat-info {
+  font-size: 20px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.edit-chat-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-chat-form textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  resize: vertical;
+  font-family: inherit;
+  color: #333;
+}
+
+.edit-chat-form button,
+.edit-chat-back a {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-chat-form button:hover,
+.edit-chat-back a:hover {
+  background-color: #0056b3;
+}
+
+.edit-chat-back {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.edit-chat-back a {
+  color: #fff;
+  text-decoration: none;
+}
+
+   </style>
+  </head>
+  <body>
+    <div class="edit-chat-container">
+      <h3 class="edit-chat-title">Edit your chat:</h3>
+      <p class="chat-id">Your ID is: <%= chat._id %></p>
+      <h2 class="chat-info">
+        This chat is sent from <strong><u><%= chat.from %></u></strong> 
+        to <strong><u><%= chat.to %></u></strong>
+      </h2>
+
+      <form class="edit-chat-form" method="post" action="/chats/<%= chat._id %>?_method=PUT">
+        <textarea name="message" cols="30" rows="10"><%= chat.message %></textarea>
+        <br>
+        <button type="submit">Edit</button>
+      </form>
+
+      <div class="edit-chat-back"><a href="http://localhost:8080/chats">Go Back</a></div>
+    </div>
+  </body>
+</html>

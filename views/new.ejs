@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Chat</title>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <style>
+      /* style.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #333;
+  min-height: 100vh;
+}
+
+.new-chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.new-chat-title {
+  color: #333;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.new-chat-form h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.new-chat-form input,
+.new-chat-form textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  resize: vertical;
+  font-family: inherit;
+  color: #333;
+}
+
+.new-chat-form button,
+.go-back-button a {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.new-chat-form button:hover,
+.go-back-button a:hover {
+  background-color: #0056b3;
+}
+
+.go-back-button {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.go-back-button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="new-chat-container">
+      <h3 class="new-chat-title">Add a New Chat</h3>
+
+      <form action="/chats" method="post" class="new-chat-form">
+        <h3>From:</h3> 
+        <input type="text" id="from" name="from" required placeholder="Who are you">
+        <br><br>
+
+        <h3>To:</h3>
+        <input type="text" id="to" name="to" required placeholder="Receiver name"> 
+        <br><br>
+        
+        <h3>Message:</h3>
+        <textarea id="message" name="message" required placeholder="Your message"></textarea> 
+        <br><br>
+        
+        <button type="submit">Submit</button>
+      </form>
+
+      <div class="go-back-button">
+        <a href="http://localhost:8080/chats">Go Back</a>
+      </div>
+    </div>
+  </body>
+</html>
